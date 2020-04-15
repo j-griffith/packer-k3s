@@ -8,7 +8,7 @@
         "password":"{{user `password`}}",
         "insecure_connection": "true",
   
-        "vm_name": "ubuntu_k3s",
+        "vm_name": "rancher-bootstrap",
         "datastore": "{{user `datastore`}}",
         "convert_to_template": "true",
         "cluster": "{{user `cluster`}}",
@@ -68,15 +68,21 @@
       },
       {
         "scripts": [
-          "scripts/packages.sh",
+          "scripts/common/packages.sh",
           "scripts/common/cloud-init.sh",
           "scripts/common/bootloader.sh",
           "scripts/common/network-config.sh",
-          "scripts/node/k3s-install.sh"
+          "scripts/common/docker.sh"
         ],
         "type": "shell",
         "pause_before": "10s",
         "execute_command": "{{.Vars}} sudo -E -S bash '{{.Path}}'"
+      },
+      {
+        "type": "shell",
+        "inline": [
+          "sudo docker pull rancher/rancher"
+        ]
       },
       {
         "type": "shell",
@@ -103,8 +109,12 @@
           ]
       },
       {
+        "scripts": [
+          "scripts/bootstrap/init-script.sh"
+        ],
         "type": "shell",
-        "inline": ["echo 'template build - test the image'"]
+        "pause_before": "5s",
+        "execute_command": "{{.Vars}} sudo -E -S bash '{{.Path}}'"
       },
       {
         "type": "shell",
