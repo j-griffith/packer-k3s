@@ -1,32 +1,24 @@
 # Packer files to build rancher bootstrap OVA using vsphere-iso
 
-This builds a simple Ubuntu 18.04 OVA with Rancher Server installed.
+This builds a simple Ubuntu 18.04 OVA or QCOW2 (WIP) with a K3s Server installed.
 
-It includes an init.d script that will automatically start the Rancher
-on boot, which can then be used as a bootstrap cluster to build a
-"production" rancher cluster.
+## Build an image
 
-## Variables File
+Use make, and select your build platform:
 
-Use a variables file to specify vSphere credentials and settings.
+### ova-local
 
-EG
+Builds an OVA on your local machine using VMware Workstation, Player, Fusion etc
 
-"""
-{
-    "vcenter_server":"10.111.222.77",
-    "username":"administrator@vsphere.local",
-    "password":"password!",
-    "datastore":"Datastore-01",
-    "cluster": "Cluster-01",
-    "network": "01-VM_Network",
-    "ssh_username": "ubuntu",
-    "ssh_password": "ubuntu",
-    "ssh_key_src_pub": "/Users/jdg/.ssh/id_rsa.pub",
-    "image_home_dir": "/home/"
-}
-"""
+### ova-vsphere
 
-## Build It
+Builds an OVA on a remote vSphere cluster.  Requires modifications to the variables in the
+k3s-server.json file
 
-packer build -var-file=./.variables bootstrap-ova.json
+### qcow2
+
+Not implemented yet, but will enable building a qcow2 for use by KVM
+
+## Possible additions
+
+Add vbox support?
