@@ -1,8 +1,8 @@
 #!/bin/bash
 
+rm -rf _output/vmware
 packer build -only=vmware-iso k3s-server.json
 
-rm -rf _output/vmware/*
 cd _output/vmware
 
 # Change output artifact to OVA
