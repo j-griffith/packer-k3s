@@ -1,9 +1,4 @@
-# Cache objects
-packer_cache/
-
-# Crash log
-crash.log
-
-# For built boxes
-*.box
-.variables
+packer_cache/*
+_output/vmware/*
+images/ova/*
+images/qcow/*

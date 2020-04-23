@@ -23,6 +23,7 @@ sg3-utils
 multipath-tools
 scsitools
 resolvconf
+wget
 "
 apt update -y
 apt install -y --no-install-recommends $PACKAGES
