@@ -3,7 +3,7 @@
     {
       "vcenter_server":"10.117.227.72",
       "username":"administrator@vsphere.local",
-      "password":"SolidF1r3!",
+      "password":"pass!",
       "datastore":"NetApp-HCI-Datastore-01",
       "cluster": "NetApp-HCI-Cluster-01",
       "network": "NetApp HCI VDS 01-VM_Network",
@@ -133,8 +133,8 @@
         "scripts/bootloader.sh",
         "scripts/network-config.sh",
         "scripts/docker.sh",
-        "scripts/k3s-install.sh",
-        "scripts/helm-install.sh"
+        "scripts/get_k3s.sh",
+        "scripts/get_helm.sh"
       ],
       "type": "shell",
       "pause_before": "10s",

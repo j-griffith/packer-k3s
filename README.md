@@ -1,6 +1,12 @@
 # Packer files to build rancher bootstrap OVA using vsphere-iso
 
-This builds a simple Ubuntu 18.04 OVA or QCOW2 (WIP) with a K3s Server installed.
+This builds a simple Ubuntu 18.04 OVA or QCOW2 (WIP) with a K3s Server and Helm-3 installed.
+
+Upon booting form these images you should have a functional Helm and a running K3s single node cluster.
+
+*NOTE* 
+We're not setting up extra ip's for kube api access, this assumes a local cluster, but we can use cloud-init
+to modify this if needed.
 
 ## Build an image
 
