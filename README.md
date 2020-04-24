@@ -5,8 +5,10 @@ This builds a simple Ubuntu 18.04 OVA or QCOW2 (WIP) with a K3s Server and Helm-
 Upon booting form these images you should have a functional Helm and a running K3s single node cluster.
 
 *NOTE* 
-We're not setting up extra ip's for kube api access, this assumes a local cluster, but we can use cloud-init
-to modify this if needed.
+To run remotely, you'll need to download `/etc/rancher/k3s/k3s.yaml` modify the IP Address and you can use it for
+your kubeconfig and issue commands remotely.
+
+In the spirit of automation, I'm considering adding a web-server to easily pull the config; this could also be used to automate scaling out more nodes.
 
 # Requirements
 
