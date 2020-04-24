@@ -24,6 +24,7 @@ tar -cvf rancher-k3s.ova rancher-k3s.ovf disk-0.vmdk
 cd ../../
 
 # Copy the OVA into its final output directory
+mkdir -p images/ova
 cp _output/vmware/rancher-k3s.ova images/ova/rancher-k3s.ova
 
 # Add properties to the OVA, this can be used to initialize cloud-init on upload time

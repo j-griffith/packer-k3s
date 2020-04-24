@@ -8,6 +8,17 @@ Upon booting form these images you should have a functional Helm and a running K
 We're not setting up extra ip's for kube api access, this assumes a local cluster, but we can use cloud-init
 to modify this if needed.
 
+# Requirements
+
+Tested with:
+Packer version 1.5.5
+Linux
+  - to vSphere 6.x
+  - vmWare Workstation for Linux
+MacOS
+  - to vSphere 6.x
+  - vmWare Fusion
+
 ## Build an image
 
 Use make, and select your build platform:
